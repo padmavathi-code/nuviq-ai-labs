@@ -54,14 +54,20 @@ ${message}`
     form.reset();
   };
 
+  const googleMapsUrl =
+    "https://www.google.com/maps/search/?api=1&query=No.+158,+Kamarajar+Road,+Arakandanallur,+Villupuram,+Tamil+Nadu+605752";
+
+  const googleMapEmbed =
+    "https://www.google.com/maps?q=No.+158,+Kamarajar+Road,+Arakandanallur,+Villupuram,+Tamil+Nadu+605752&output=embed";
+
   return (
-    <section
-      className="contact-section"
-      id="contact"
-    >
+    <section className="contact-section" id="contact">
       <div className="section-container">
 
-        {/* CTA */}
+        {/* =========================
+            TOP CTA
+        ========================= */}
+
         <motion.div
           className="contact-cta"
           initial={{
@@ -117,10 +123,16 @@ ${message}`
           </div>
         </motion.div>
 
-        {/* CONTACT GRID */}
+        {/* =========================
+            CONTACT GRID
+        ========================= */}
+
         <div className="contact-grid">
 
-          {/* CONTACT INFORMATION */}
+          {/* =========================
+              CONTACT INFORMATION
+          ========================= */}
+
           <motion.div
             className="contact-info"
             initial={{
@@ -167,6 +179,7 @@ ${message}`
 
                 <div>
                   <span>Phone</span>
+
                   <strong>
                     +91 88380 96220
                   </strong>
@@ -186,6 +199,7 @@ ${message}`
 
                 <div>
                   <span>WhatsApp</span>
+
                   <strong>
                     +91 88380 96220
                   </strong>
@@ -231,7 +245,10 @@ ${message}`
             </div>
           </motion.div>
 
-          {/* CONTACT FORM */}
+          {/* =========================
+              CONTACT FORM
+          ========================= */}
+
           <motion.div
             className="contact-form-card"
             initial={{
@@ -306,7 +323,7 @@ ${message}`
                 />
               </div>
 
-              {/* MESSAGE */}
+              {/* PROJECT REQUIREMENT */}
               <div className="contact-input-group">
                 <label>
                   Project Requirement
@@ -333,6 +350,83 @@ ${message}`
           </motion.div>
 
         </div>
+
+        {/* =========================
+            GOOGLE MAP
+        ========================= */}
+
+        <motion.div
+          className="contact-map-card"
+          initial={{
+            opacity: 0,
+            y: 35,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+        >
+
+          {/* MAP HEADER */}
+          <div className="contact-map-header">
+
+            <div>
+              <span className="section-label">
+                OUR LOCATION
+              </span>
+
+              <h3>
+                Find NUVIQ AI LABS
+              </h3>
+            </div>
+
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="map-open-button"
+            >
+              Open in Google Maps
+              <ArrowUpRight size={16} />
+            </a>
+
+          </div>
+
+          {/* MAP */}
+          <div className="google-map-wrapper">
+
+            <iframe
+              title="NUVIQ AI LABS Location"
+              src={googleMapEmbed}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+          </div>
+
+          {/* MAP ADDRESS */}
+          <div className="map-address">
+
+            <MapPin size={18} />
+
+            <span>
+              No. 158, Kamarajar Road,
+              Arakandanallur,
+              Villupuram District,
+              Tamil Nadu 605752
+            </span>
+
+          </div>
+
+        </motion.div>
+
       </div>
     </section>
   );
